@@ -1,310 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Use free online text tools, JSON formatter, duplicate line remover and percentage calculator. Fast, simple and free.">
-  <title>ToolNest — Free Online Tools</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0b1020;
-      --card: #141c30;
-      --border: #293650;
-      --text: #f2f5ff;
-      --muted: #aab6cf;
-      --accent: #8b7cff;
-      --green: #63e6be;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-    header, main, footer {
-      width: min(1050px, 92%);
-      margin: auto;
-    }
-    header {
-      padding: 25px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-    .logo { font-size: 25px; font-weight: 800; }
-    .logo span { color: var(--accent); }
-    a { color: #b8adff; }
-    .hero { padding: 45px 0 25px; text-align: center; }
-    h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.15; }
-    .hero p, .muted { color: var(--muted); }
-    .search, textarea, input, select {
-      width: 100%;
-      padding: 13px;
-      border-radius: 10px;
-      background: #0d1425;
-      color: var(--text);
-      border: 1px solid var(--border);
-      font: inherit;
-    }
-    .search { max-width: 600px; margin: 15px auto; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin: 25px 0 50px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      min-width: 0;
-    }
-    h2 { font-size: 19px; margin-top: 0; }
-    textarea { min-height: 115px; resize: vertical; }
-    .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    button {
-      border: 0;
-      border-radius: 9px;
-      background: var(--accent);
-      color: white;
-      padding: 10px 13px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    button.secondary { background: #273550; }
-    button:hover { filter: brightness(1.12); }
-    .result { color: var(--green); overflow-wrap: anywhere; }
-    .stats { display: flex; gap: 18px; flex-wrap: wrap; }
-    .stats strong { color: var(--green); }
-    .hidden { display: none; }
-    footer {
-      padding: 25px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 14px;
-    }
-    footer a { margin-right: 15px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ToolNest offers free, simple online text, calculator, developer and productivity tools. Fast, private and easy to use.">
+<meta name="theme-color" content="#0b1020">
+<title>ToolNest — Free Online Tools</title>
+<style>
+:root{--bg:#090d19;--panel:#11182a;--panel2:#151e33;--line:#27324b;--text:#eef2ff;--muted:#9aa8c5;--purple:#8b5cf6;--blue:#38bdf8;--green:#34d399;--shadow:0 18px 55px #0003}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#26194a 0,transparent 34%),radial-gradient(ellipse at 100% 20%,#102d4b 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}.topbar{position:sticky;top:0;z-index:20;background:#090d19d9;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:850;font-size:1.25rem;letter-spacing:-.5px}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--purple),var(--blue));box-shadow:0 8px 22px #8b5cf644;font-size:20px}.navlinks{display:flex;gap:22px}.navlinks a{color:var(--muted);text-decoration:none;font-size:.92rem}.navlinks a:hover{color:white}.hero{padding:68px 0 38px;text-align:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #8b5cf655;background:#8b5cf61b;color:#c4b5fd;border-radius:99px;padding:7px 13px;font-size:.82rem;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}h1{font-size:clamp(2.4rem,6vw,4.5rem);letter-spacing:-.06em;line-height:1.04;margin:22px 0 16px}h1 span{background:linear-gradient(90deg,#c4b5fd,#7dd3fc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:630px;margin:0 auto 25px;font-size:1.06rem}.searchbox{width:min(650px,100%);margin:auto;display:flex;gap:10px;padding:8px;border:1px solid #ffffff20;border-radius:18px;background:#11182add;box-shadow:var(--shadow)}.searchbox input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:white;padding:10px 12px}.searchbox input::placeholder{color:#7f8ca8}.searchbox button,.primary{border:0;border-radius:12px;background:linear-gradient(135deg,var(--purple),#6366f1);color:white;font-weight:750;padding:11px 17px}.stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:22px;color:var(--muted);font-size:.88rem}.stats b{color:#fff}.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:34px 0 18px}.section-head h2{font-size:1.45rem;letter-spacing:-.03em;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:.92rem}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.filter{border:1px solid var(--line);background:#11182a;color:var(--muted);padding:8px 13px;border-radius:99px;font-size:.88rem}.filter.active,.filter:hover{color:#fff;background:#8b5cf62a;border-color:#8b5cf6}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:linear-gradient(155deg,#151d31e8,#0e1525f5);border:1px solid var(--line);border-radius:19px;padding:19px;min-width:0;transition:transform .2s,border-color .2s;box-shadow:0 10px 25px #00000012}.card:hover{transform:translateY(-3px);border-color:#7661bc}.cardtop{display:flex;align-items:center;gap:12px;margin-bottom:11px}.icon{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:#8b5cf626;font-size:21px}.card h3{margin:0;font-size:1.02rem}.tag{margin-left:auto;color:#a5b4fc;background:#6366f11c;border-radius:99px;padding:4px 8px;font-size:.69rem;white-space:nowrap}.card p{margin:0 0 15px;color:var(--muted);font-size:.89rem;min-height:42px}.card button{width:100%;border:1px solid #ffffff1a;background:#ffffff08;color:#e9eaff;border-radius:11px;padding:10px;font-weight:700}.card button:hover{background:#8b5cf62a;border-color:#8b5cf6}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:18px;display:none}.toolarea{margin:52px 0 40px;scroll-margin-top:95px}.toolpanel{border:1px solid #ffffff20;border-radius:22px;background:linear-gradient(140deg,#171e32,#0d1423);padding:clamp(18px,3vw,30px);box-shadow:var(--shadow)}.toolpanel h2{margin:0 0 5px;font-size:1.55rem}.toolpanel .sub{color:var(--muted);margin:0 0 20px}.toolbody{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.full{grid-column:1/-1}.field label{color:#c4cce0;font-size:.86rem;font-weight:700}.field input,.field textarea,.field select{width:100%;background:#090f1e;border:1px solid #34405b;border-radius:11px;color:#f8fafc;padding:11px 12px;outline:none}.field textarea{min-height:145px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf622}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.secondary{border:1px solid #3a4661;background:#ffffff08;color:#e5e7eb;border-radius:11px;padding:10px 14px;font-weight:700}.secondary:hover{background:#ffffff14}.result{margin-top:14px;background:#080e1b;border:1px solid #28344e;border-radius:12px;padding:13px;white-space:pre-wrap;overflow-wrap:anywhere;color:#dbeafe;min-height:48px}.hint{color:var(--muted);font-size:.82rem;margin-top:10px}.notice{border:1px solid #34d39944;background:#34d3990c;color:#a7f3d0;border-radius:12px;padding:12px;margin-top:12px;font-size:.88rem}.footer{border-top:1px solid #ffffff12;margin-top:55px;padding:27px 0 35px;color:var(--muted);font-size:.88rem}.footerinner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer a{color:#c4b5fd;text-decoration:none}.hidden{display:none!important}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}}@media(max-width:560px){.wrap{width:min(100% - 24px,1160px)}.nav{height:62px}.navlinks a:not(:last-child){display:none}.hero{padding:48px 0 25px}.grid{grid-template-columns:1fr}.card p{min-height:0}.toolbody{grid-template-columns:1fr}.field.full{grid-column:auto}.searchbox{border-radius:14px}.searchbox button{padding:10px 12px}.stats{gap:12px}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">Tool<span>Nest</span></div>
-    <a href="#tools">Explore tools ↓</a>
-  </header>
-
-  <main>
-    <section class="hero">
-      <p>YOUR FREE PRODUCTIVITY TOOLKIT</p>
-      <h1>Small tools.<br>Big time savings.</h1>
-      <p>Useful online tools, free to use and simple to understand.</p>
-      <input id="search" class="search"
-        placeholder="Search tools..." aria-label="Search tools">
-    </section>
-
-    <section id="tools" class="grid">
-
-      <article class="card" data-tool="word character text counter">
-        <h2>📝 Word & Character Counter</h2>
-        <textarea id="textInput" placeholder="Type or paste your text..."></textarea>
-        <div class="stats">
-          <span>Words: <strong id="words">0</strong></span>
-          <span>Characters: <strong id="chars">0</strong></span>
-          <span>Sentences: <strong id="sentences">0</strong></span>
-        </div>
-        <div class="row">
-          <button class="secondary" onclick="copyText('textInput')">Copy text</button>
-          <button class="secondary" onclick="clearText('textInput')">Clear</button>
-        </div>
-      </article>
-
-      <article class="card" data-tool="case converter uppercase lowercase title text">
-        <h2>🔠 Text Case Converter</h2>
-        <textarea id="caseInput" placeholder="Enter text to convert..."></textarea>
-        <div class="row">
-          <button onclick="convertCase('upper')">UPPERCASE</button>
-          <button onclick="convertCase('lower')">lowercase</button>
-          <button onclick="convertCase('title')">Title Case</button>
-        </div>
-        <textarea id="caseOutput" placeholder="Converted text..." readonly></textarea>
-        <button class="secondary" onclick="copyText('caseOutput')">Copy result</button>
-      </article>
-
-      <article class="card" data-tool="duplicate lines remover list clean">
-        <h2>🧹 Duplicate Line Remover</h2>
-        <textarea id="duplicateInput" placeholder="Paste a list, one item per line..."></textarea>
-        <div class="row">
-          <label><input type="checkbox" id="ignoreCase" style="width:auto">
-            Ignore case</label>
-        </div>
-        <button onclick="removeDuplicates()">Remove duplicates</button>
-        <p class="result" id="duplicateStatus" aria-live="polite"></p>
-        <textarea id="duplicateOutput" placeholder="Cleaned list..." readonly></textarea>
-        <button class="secondary" onclick="copyText('duplicateOutput')">Copy result</button>
-      </article>
-
-      <article class="card" data-tool="json formatter validator developer">
-        <h2>🧩 JSON Formatter</h2>
-        <textarea id="jsonInput" placeholder='Paste JSON, e.g. {"name":"Alex","age":20}'></textarea>
-        <div class="row">
-          <button onclick="formatJSON()">Format JSON</button>
-          <button class="secondary" onclick="minifyJSON()">Minify</button>
-        </div>
-        <p class="result" id="jsonStatus" aria-live="polite"></p>
-        <textarea id="jsonOutput" placeholder="JSON result..." readonly></textarea>
-        <button class="secondary" onclick="copyText('jsonOutput')">Copy result</button>
-      </article>
-
-      <article class="card" data-tool="percentage discount calculator price">
-        <h2>🧮 Discount Calculator</h2>
-        <label for="price">Original price (₹)</label>
-        <input id="price" type="number" min="0" step="any" placeholder="e.g. 1000">
-        <label for="discount">Discount (%)</label>
-        <input id="discount" type="number" min="0" max="100" step="any" placeholder="e.g. 20">
-        <div class="row">
-          <button onclick="calculateDiscount()">Calculate</button>
-        </div>
-        <p class="result" id="discountResult" aria-live="polite"></p>
-      </article>
-
-    </section>
-
-    <section class="card">
-      <h2>Why use ToolNest?</h2>
-      <p class="muted">
-        Simple browser-based utilities for students, creators, developers
-        and everyday tasks. No account is needed for these tools.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© <span id="year"></span> ToolNest. Built for useful everyday work.</p>
-    <a href="about.html">About</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="contact.html">Contact</a>
-    <p>Results are processed in your browser by these tools.</p>
-  </footer>
-
-  <script>
-    const $ = id => document.getElementById(id);
-
-    $("year").textContent = new Date().getFullYear();
-
-    $("textInput").addEventListener("input", () => {
-      const t = $("textInput").value;
-      $("words").textContent = t.trim() ? t.trim().split(/\s+/).length : 0;
-      $("chars").textContent = t.length;
-      $("sentences").textContent =
-        (t.match(/[.!?]+(?=\s|$)/g) || []).length;
-    });
-
-    function convertCase(type) {
-      const t = $("caseInput").value;
-      let result = t;
-      if (type === "upper") result = t.toUpperCase();
-      if (type === "lower") result = t.toLowerCase();
-      if (type === "title") {
-        result = t.toLowerCase().replace(/\b[\p{L}\p{N}]/gu,
-          c => c.toUpperCase());
-      }
-      $("caseOutput").value = result;
-    }
-
-    function removeDuplicates() {
-      const lines = $("duplicateInput").value.split(/\r?\n/);
-      const seen = new Set();
-      const cleaned = [];
-      const ignore = $("ignoreCase").checked;
-
-      for (const line of lines) {
-        const key = ignore ? line.toLowerCase() : line;
-        if (!seen.has(key)) {
-          seen.add(key);
-          cleaned.push(line);
-        }
-      }
-
-      $("duplicateOutput").value = cleaned.join("\n");
-      $("duplicateStatus").textContent =
-        `${lines.length - cleaned.length} duplicate line(s) removed.`;
-    }
-
-    function formatJSON() {
-      try {
-        $("jsonOutput").value =
-          JSON.stringify(JSON.parse($("jsonInput").value), null, 2);
-        $("jsonStatus").textContent = "Valid JSON.";
-      } catch (e) {
-        $("jsonStatus").textContent = "Invalid JSON. Check your input.";
-        $("jsonOutput").value = "";
-      }
-    }
-
-    function minifyJSON() {
-      try {
-        $("jsonOutput").value =
-          JSON.stringify(JSON.parse($("jsonInput").value));
-        $("jsonStatus").textContent = "JSON minified successfully.";
-      } catch (e) {
-        $("jsonStatus").textContent = "Invalid JSON. Check your input.";
-        $("jsonOutput").value = "";
-      }
-    }
-
-    function calculateDiscount() {
-      const price = Number($("price").value);
-      const discount = Number($("discount").value);
-
-      if ($("price").value.trim() === "" ||
-          $("discount").value.trim() === "" ||
-          !Number.isFinite(price) || !Number.isFinite(discount) ||
-          price < 0 || discount < 0 || discount > 100) {
-        $("discountResult").textContent =
-          "Enter a valid price and discount between 0 and 100.";
-        return;
-      }
-
-      const saved = price * discount / 100;
-      const finalPrice = price - saved;
-      $("discountResult").textContent =
-        `You save ₹${saved.toFixed(2)}. Final price: ₹${finalPrice.toFixed(2)}.`;
-    }
-
-    async function copyText(id) {
-      const value = $(id).value;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(value);
-        } else {
-          $(id).focus();
-          $(id).select();
-          if (!document.execCommand("copy")) throw new Error("Copy failed");
-        }
-        alert("Copied!");
-      } catch (e) {
-        alert("Copy failed. Select the text and copy it manually.");
-      }
-    }
-
-    function clearText(id) {
-      $(id).value = "";
-      if (id === "textInput") $("textInput").dispatchEvent(new Event("input"));
-    }
-
-    $("search").addEventListener("input", e => {
-      const q = e.target.value.toLowerCase().trim();
-      document.querySelectorAll("[data-tool]").forEach(card => {
-        card.classList.toggle("hidden",
-          !card.dataset.tool.includes(q) &&
-          !card.innerText.toLowerCase().includes(q));
-      });
-    });
-  </script>
+<header class="topbar"><div class="wrap nav">
+<a class="brand" href="#" aria-label="ToolNest home"><span class="logo">✦</span>ToolNest</a>
+<nav class="navlinks"><a href="#tools">Explore tools</a><a href="#tool-workspace">Workspace</a><a href="#about">About</a></nav>
+</div></header>
+<main>
+<section class="hero wrap">
+<div class="eyebrow"><span class="dot"></span> Simple tools. Smarter work.</div>
+<h1>Your everyday tools,<br><span>all in one nest.</span></h1>
+<p>Free, quick and easy-to-use online tools for text, calculations and development. No account needed for these browser-based utilities.</p>
+<div class="searchbox"><input id="search" type="search" placeholder="Search a tool… e.g. JSON, percentage, text" aria-label="Search tools"><button id="searchBtn">Search tools</button></div>
+<div class="stats"><span>🧰 <b id="toolCount">15</b> useful tools</span><span>⚡ Quick to use</span><span>🔒 Browser-based processing for most tools</span></div>
+</section>
+<section class="wrap" id="tools">
+<div class="section-head"><div><h2>Explore the toolbox</h2><p>Choose a tool and get straight to work.</p></div></div>
+<div class="filters" id="filters">
+<button class="filter active" data-category="All">All tools</button><button class="filter" data-category="Text">✍️ Text</button><button class="filter" data-category="Calculators">🧮 Calculators</button><button class="filter" data-category="Developer">💻 Developer</button><button class="filter" data-category="Productivity">⚡ Productivity</button>
+</div>
+<div class="grid" id="grid"></div><div class="empty" id="empty">No matching tools found. Try another search.</div>
+</section>
+<section class="wrap toolarea" id="tool-workspace">
+<div class="toolpanel">
+<h2 id="toolTitle">Choose a tool to get started</h2><p class="sub" id="toolDesc">Your selected tool will open here.</p>
+<div id="toolBody"><div class="notice">Select any tool card above to open its workspace. Your text and calculations stay in your browser unless a feature clearly says it needs an online service.</div></div>
+</div>
+</section>
+</main>
+<footer class="footer" id="about"><div class="wrap footerinner"><div><a class="brand" href="#"><span class="logo">✦</span>ToolNest</a><p>Useful little tools for everyday tasks.</p></div><div><a href="#tools">Explore tools</a> &nbsp;·&nbsp; <a href="mailto:hello@toolnest.example">Contact</a><p>© <span id="year"></span> ToolNest. Built for simple, useful work.</p></div></div></footer>
+<script>
+const tools = [
+{id:'word',name:'Word & Character Counter',cat:'Text',icon:'🔤',desc:'Count words, characters, sentences and paragraphs.',tag:'Popular'},
+{id:'case',name:'Text Case Converter',cat:'Text',icon:'🔠',desc:'Convert text to uppercase, lowercase, title case or sentence case.',tag:'Popular'},
+{id:'duplicates',name:'Remove Duplicate Lines',cat:'Text',icon:'🧹',desc:'Remove repeated lines from lists and text.',tag:'Text'},
+{id:'json',name:'JSON Formatter',cat:'Developer',icon:'{ }',desc:'Format, validate or minify JSON data.',tag:'Developer'},
+{id:'discount',name:'Discount Calculator',cat:'Calculators',icon:'🏷️',desc:'Calculate the discount amount and final price.',tag:'Popular'},
+{id:'spaces',name:'Remove Extra Spaces',cat:'Text',icon:'↔️',desc:'Clean extra spaces and blank lines from text.',tag:'Text'},
+{id:'replace',name:'Find & Replace Text',cat:'Text',icon:'🔎',desc:'Find a word or phrase and replace its matches.',tag:'Text'},
+{id:'sort',name:'Sort Lines Alphabetically',cat:'Text',icon:'🔡',desc:'Sort a list A–Z or Z–A, with optional duplicate removal.',tag:'Text'},
+{id:'reverse',name:'Reverse Text',cat:'Text',icon:'🔁',desc:'Reverse characters or the order of words.',tag:'Text'},
+{id:'slug',name:'Text to Slug',cat:'Text',icon:'🔗',desc:'Turn a title into a clean URL-friendly slug.',tag:'SEO'},
+{id:'percentage',name:'Percentage Calculator',cat:'Calculators',icon:'％',desc:'Find a percentage, a value’s percentage, or percentage change.',tag:'Calculator'},
+{id:'age',name:'Age Calculator',cat:'Calculators',icon:'🎂',desc:'Calculate your age from your date of birth.',tag:'Calculator'},
+{id:'gst',name:'GST Calculator',cat:'Calculators',icon:'₹',desc:'Calculate GST amount and inclusive or exclusive totals.',tag:'India'},
+{id:'bmi',name:'BMI Calculator',cat:'Calculators',icon:'⚖️',desc:'Calculate BMI from height and weight.',tag:'Health'},
+{id:'qr',name:'QR Code Generator',cat:'Productivity',icon:'▦',desc:'Create a QR code for a URL or short text using an online QR service.',tag:'Utility'}
+];
+const grid=document.getElementById('grid'), search=document.getElementById('search'), empty=document.getElementById('empty');
+let activeCategory='All', activeTool=null;
+function renderCards(){
+ const q=search.value.trim().toLowerCase();
+ const list=tools.filter(t=>(activeCategory==='All'||t.cat===activeCategory)&&(`${t.name} ${t.desc} ${t.cat}`.toLowerCase().includes(q)));
+ grid.innerHTML=list.map(t=>`<article class="card"><div class="cardtop"><div class="icon">${t.icon}</div><h3>${t.name}</h3><span class="tag">${t.tag}</span></div><p>${t.desc}</p><button data-open="${t.id}">Open tool →</button></article>`).join('');
+ empty.style.display=list.length?'none':'block';
+ document.getElementById('toolCount').textContent=tools.length;
+ grid.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.open)));
+}
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('[data-category]');if(!b)return;activeCategory=b.dataset.category;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderCards()});
+search.addEventListener('input',renderCards);document.getElementById('searchBtn').addEventListener('click',()=>{renderCards();document.getElementById('tools').scrollIntoView({behavior:'smooth'})});
+document.getElementById('year').textContent=new Date().getFullYear();
+function field(label,id,opts={}){let type=opts.type||'text', val=opts.value??'';if(type==='textarea')return `<div class="field ${opts.full?'full':''}"><label for="${id}">${label}</label><textarea id="${id}" placeholder="${opts.placeholder||''}">${val}</textarea></div>`;if(type==='select')return `<div class="field ${opts.full?'full':''}"><label for="${id}">${label}</label><select id="${id}">${opts.options.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select></div>`;return `<div class="field ${opts.full?'full':''}"><label for="${id}">${label}</label><input id="${id}" type="${type}" value="${val}" placeholder="${opts.placeholder||''}" ${opts.min!==undefined?`min="${opts.min}"`:''} ${opts.step?`step="${opts.step}"`:''}></div>`}
+function area(label='Your text',id='inputText'){return field(label,id,{type:'textarea',full:true,placeholder:'Type or paste here…'})}
+function buttons(items){return `<div class="actions">${items.map(([label,action,primary=false])=>`<button class="${primary?'primary':'secondary'}" data-action="${action}">${label}</button>`).join('')}</div>`}
+function output(id='result'){return `<div class="result" id="${id}" aria-live="polite">Your result will appear here.</div>`}
+function workspace(id,title,desc,body){activeTool=id;document.getElementById('toolTitle').textContent=title;document.getElementById('toolDesc').textContent=desc;document.getElementById('toolBody').innerHTML=body;document.getElementById('tool-workspace').scrollIntoView({behavior:'smooth'});}
+function val(id){return document.getElementById(id)?.value??''}
+function set(id,text){const el=document.getElementById(id);if(el)el.textContent=text}
+function copyResult(id='result'){const text=document.getElementById(id)?.textContent||'';navigator.clipboard?.writeText(text).then(()=>{const old=document.getElementById(id).textContent;document.getElementById(id).textContent='Copied to clipboard!';setTimeout(()=>set(id,old),900)}).catch(()=>alert('Copy was blocked by your browser. Select the result and copy it manually.'))}
+function run(action){
+ const text=val('inputText');
+ switch(action){
+ case 'count':{let words=text.trim()?text.trim().split(/\s+/u).length:0;let chars=[...text].length;let sentences=(text.match(/[.!?]+(?=\s|$)/g)||[]).length;let paragraphs=text.trim()?text.trim().split(/\n\s*\n/).length:0;set('result',`Words: ${words}\nCharacters (with spaces): ${chars}\nCharacters (without spaces): ${[...text.replace(/\s/g,'')].length}\nSentences: ${sentences}\nParagraphs: ${paragraphs}`);break}
+ case 'case':{const mode=val('caseMode');let out=text;if(mode==='upper')out=text.toUpperCase();if(mode==='lower')out=text.toLowerCase();if(mode==='title')out=text.toLowerCase().replace(/\b\p{L}/gu,c=>c.toUpperCase());if(mode==='sentence')out=text.toLowerCase().replace(/(^\s*\p{L}|[.!?]\s+\p{L})/gu,c=>c.toUpperCase());set('result',out);break}
+ case 'duplicates':{const lines=text.split(/\r?\n/),seen=new Set(),out=[];for(const line of lines){const key=val('ignoreCase')==='yes'?line.toLowerCase():line;if(!seen.has(key)){seen.add(key);out.push(line)}}set('result',out.join('\n'));break}
+ case 'json':try{const parsed=JSON.parse(text);set('result',val('jsonMode')==='minify'?JSON.stringify(parsed):JSON.stringify(parsed,null,2));}catch(e){set('result','Invalid JSON: '+e.message)}break;
+ case 'spaces':set('result',text.split(/\r?\n/).map(x=>x.replace(/[ \t]+/g,' ').trim()).filter((x,i,a)=>x!==''|| (i>0&&a[i-1]!=='')).join('\n').trim());break;
+ case 'replace':{const find=val('findText');if(!find){set('result','Enter the text to find first.');break}let out=text.split(find).join(val('replaceText'));set('result',out);break}
+ case 'sort':{let lines=text.split(/\r?\n/);if(val('sortRemove')==='yes')lines=[...new Set(lines)];lines.sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));if(val('sortOrder')==='desc')lines.reverse();set('result',lines.join('\n'));break}
+ case 'reverse':set('result',val('reverseMode')==='words'?text.trim().split(/\s+/).filter(Boolean).reverse().join(' '):[...text].reverse().join(''));break;
+ case 'slug':set('result',text.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''));break;
+ case 'discount':{const price=Number(val('price')),pct=Number(val('discountPct'));if(price<0||pct<0||pct>100||!Number.isFinite(price+pct)){set('result','Enter a price ≥ 0 and discount from 0 to 100%.');break}set('result',`Discount amount: ₹${(price*pct/100).toFixed(2)}\nFinal price: ₹${(price-price*pct/100).toFixed(2)}`);break}
+ case 'percentage':{const mode=val('pctMode'),a=Number(val('pctA')),b=Number(val('pctB'));if(!Number.isFinite(a)||!Number.isFinite(b)){set('result','Enter valid numbers.');break}if(mode==='of')set('result,',`${a}% of ${b} = ${(a*b/100).toFixed(4)}`),set('result',`${a}% of ${b} = ${(a*b/100).toFixed(4)}`);else if(mode==='is')set('result',`${a} is ${(b===0?'undefined':(a/b*100).toFixed(4)+'%')} of ${b}`);else set('result',b===0?'Percentage change is undefined when the original value is zero.':`Percentage change: ${((a-b)/Math.abs(b)*100).toFixed(2)}% (from ${b} to ${a})`);break}
+ case 'gst':{const amount=Number(val('gstAmount')),rate=Number(val('gstRate')),mode=val('gstMode');if(amount<0||rate<0||!Number.isFinite(amount+rate)){set('result','Enter valid non-negative amount and GST rate.');break}const base=mode==='exclusive'?amount:amount/(1+rate/100),gst=base*rate/100,total=mode==='exclusive'?amount+gst:amount;set('result',`Base amount: ₹${base.toFixed(2)}\nGST (${rate}%): ₹${gst.toFixed(2)}\n${mode==='exclusive'?'Total including GST':'Amount excluding GST'}: ₹${(mode==='exclusive'?total:base).toFixed(2)}\nFinal total: ₹${total.toFixed(2)}\nNote: GST split (CGST/SGST or IGST) depends on the transaction.`);break}
+ case 'bmi':{const kg=Number(val('weight')),cm=Number(val('height'));if(kg<=0||cm<=0||!Number.isFinite(kg+cm)){set('result','Enter a valid positive weight and height.');break}const bmi=kg/((cm/100)**2),category=bmi<18.5?'Underweight':bmi<25?'Normal range':bmi<30?'Overweight':'Obesity range';set('result',`BMI: ${bmi.toFixed(1)}\nAdult BMI category: ${category}\nBMI is a screening measure, not a diagnosis.`);break}
+ case 'age':{const d=new Date(val('dob')+'T00:00:00'),now=new Date();if(!val('dob')||Number.isNaN(d.getTime())||d>now){set('result','Enter a valid date of birth that is not in the future.');break}let years=now.getFullYear()-d.getFullYear(),months=now.getMonth()-d.getMonth(),days=now.getDate()-d.getDate();if(days<0){months--;days+=new Date(now.getFullYear(),now.getMonth(),0).getDate()}if(months<0){years--;months+=12}set('result',`Age: ${years} years, ${months} months, ${days} days`);break}
+ case 'qr':{const data=val('qrText').trim();if(!data){set('result','Enter a URL or text first.');break}const img=document.getElementById('qrImage');img.src='https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='+encodeURIComponent(data);img.classList.remove('hidden');set('result','QR request created. This feature sends your entered text or URL to an external QR service to generate the image.');break}
+ }
+}
+function openTool(id){
+ const t=tools.find(x=>x.id===id);if(!t)return;let body='';
+ const textTool=['word','case','duplicates','spaces','replace','sort','reverse','slug'].includes(id);
+ if(textTool)body=area();
+ if(id==='word')body+=buttons([['Count text','count',true],['Copy result','copy']])+output();
+ if(id==='case')body+=field('Convert to','caseMode',{type:'select',options:[['upper','UPPERCASE'],['lower','lowercase'],['title','Title Case'],['sentence','Sentence case']]})+buttons([['Convert text','case',true],['Copy result','copy']])+output();
+ if(id==='duplicates')body+=field('Ignore case when comparing lines?','ignoreCase',{type:'select',options:[['no','No — treat uppercase/lowercase as different'],['yes','Yes — ignore case']]})+buttons([['Remove duplicates','duplicates',true],['Copy result','copy']])+output();
+ if(id==='json')body=area('Paste JSON','inputText')+field('Output format','jsonMode',{type:'select',options:[['pretty','Pretty print'],['minify','Minify JSON']]})+buttons([['Format / validate','json',true],['Copy result','copy']])+output();
+ if(id==='discount')body=field('Original price (₹)','price',{type:'number',min:0,step:'any',placeholder:'e.g. 1999'})+field('Discount (%)','discountPct',{type:'number',min:0,step:'any',placeholder:'e.g. 20'})+buttons([['Calculate discount','discount',true]])+output();
+ if(id==='spaces')body+=buttons([['Clean spaces','spaces',true],['Copy result','copy']])+output();
+ if(id==='replace')body+=field('Find this text','findText',{placeholder:'Text to find'})+field('Replace with','replaceText',{placeholder:'Replacement text'})+buttons([['Find & replace','replace',true],['Copy result','copy']])+output();
+ if(id==='sort')body+=field('Sort order','sortOrder',{type:'select',options:[['asc','A → Z'],['desc','Z → A']]})+field('Remove duplicate lines?','sortRemove',{type:'select',options:[['no','Keep duplicates'],['yes','Remove duplicates']]})+buttons([['Sort lines','sort',true],['Copy result','copy']])+output();
+ if(id==='reverse')body+=field('Reverse by','reverseMode',{type:'select',options:[['chars','Characters'],['words','Word order']]})+buttons([['Reverse text','reverse',true],['Copy result','copy']])+output();
+ if(id==='slug')body+=buttons([['Create slug','slug',true],['Copy result','copy']])+output();
+ if(id==='percentage')body=field('Calculation','pctMode',{type:'select',options:[['of','What is A% of B?'],['is','A is what percent of B?'],['change','Percentage change from B to A']]})+field('Value A / percentage','pctA',{type:'number',step:'any',placeholder:'e.g. 25'})+field('Value B / base value','pctB',{type:'number',step:'any',placeholder:'e.g. 200'})+buttons([['Calculate','percentage',true]])+output();
+ if(id==='gst')body=field('Amount (₹)','gstAmount',{type:'number',min:0,step:'any',placeholder:'e.g. 1000'})+field('GST rate','gstRate',{type:'select',options:[['5','5%'],['12','12%'],['18','18%'],['28','28%'],['0','0%']]})+field('Entered amount','gstMode',{type:'select',options:[['exclusive','Before GST (exclusive)'],['inclusive','Already includes GST (inclusive)']]})+buttons([['Calculate GST','gst',true]])+output();
+ if(id==='bmi')body=field('Weight (kg)','weight',{type:'number',min:0,step:'any',placeholder:'e.g. 60'})+field('Height (cm)','height',{type:'number',min:0,step:'any',placeholder:'e.g. 170'})+buttons([['Calculate BMI','bmi',true]])+output()+`<p class="hint">For adults only. BMI does not directly measure body fat and may not suit every person.</p>`;
+ if(id==='age')body=field('Date of birth','dob',{type:'date'})+buttons([['Calculate age','age',true]])+output();
+ if(id==='qr')body=field('Text or URL','qrText',{full:true,placeholder:'https://example.com'})+buttons([['Generate QR code','qr',true]])+output()+`<img id="qrImage" class="hidden" alt="Generated QR code" width="220" height="220" style="display:block;margin-top:15px;background:white;padding:10px;border-radius:12px">`;
+ workspace(id,t.name,t.desc,body);
+ document.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>b.dataset.action==='copy'?copyResult():run(b.dataset.action)));
+}
+renderCards();
+</script>
 </body>
 </html>
