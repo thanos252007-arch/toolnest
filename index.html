@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Use free online text tools, JSON formatter, duplicate line remover and percentage calculator. Fast, simple and free.">
+  <title>ToolNest — Free Online Tools</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --card: #141c30;
+      --border: #293650;
+      --text: #f2f5ff;
+      --muted: #aab6cf;
+      --accent: #8b7cff;
+      --green: #63e6be;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    header, main, footer {
+      width: min(1050px, 92%);
+      margin: auto;
+    }
+    header {
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo { font-size: 25px; font-weight: 800; }
+    .logo span { color: var(--accent); }
+    a { color: #b8adff; }
+    .hero { padding: 45px 0 25px; text-align: center; }
+    h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.15; }
+    .hero p, .muted { color: var(--muted); }
+    .search, textarea, input, select {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      background: #0d1425;
+      color: var(--text);
+      border: 1px solid var(--border);
+      font: inherit;
+    }
+    .search { max-width: 600px; margin: 15px auto; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 25px 0 50px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      min-width: 0;
+    }
+    h2 { font-size: 19px; margin-top: 0; }
+    textarea { min-height: 115px; resize: vertical; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    button {
+      border: 0;
+      border-radius: 9px;
+      background: var(--accent);
+      color: white;
+      padding: 10px 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    button.secondary { background: #273550; }
+    button:hover { filter: brightness(1.12); }
+    .result { color: var(--green); overflow-wrap: anywhere; }
+    .stats { display: flex; gap: 18px; flex-wrap: wrap; }
+    .stats strong { color: var(--green); }
+    .hidden { display: none; }
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer a { margin-right: 15px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Tool<span>Nest</span></div>
+    <a href="#tools">Explore tools ↓</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p>YOUR FREE PRODUCTIVITY TOOLKIT</p>
+      <h1>Small tools.<br>Big time savings.</h1>
+      <p>Useful online tools, free to use and simple to understand.</p>
+      <input id="search" class="search"
+        placeholder="Search tools..." aria-label="Search tools">
+    </section>
+
+    <section id="tools" class="grid">
+
+      <article class="card" data-tool="word character text counter">
+        <h2>📝 Word & Character Counter</h2>
+        <textarea id="textInput" placeholder="Type or paste your text..."></textarea>
+        <div class="stats">
+          <span>Words: <strong id="words">0</strong></span>
+          <span>Characters: <strong id="chars">0</strong></span>
+          <span>Sentences: <strong id="sentences">0</strong></span>
+        </div>
+        <div class="row">
+          <button class="secondary" onclick="copyText('textInput')">Copy text</button>
+          <button class="secondary" onclick="clearText('textInput')">Clear</button>
+        </div>
+      </article>
+
+      <article class="card" data-tool="case converter uppercase lowercase title text">
+        <h2>🔠 Text Case Converter</h2>
+        <textarea id="caseInput" placeholder="Enter text to convert..."></textarea>
+        <div class="row">
+          <button onclick="convertCase('upper')">UPPERCASE</button>
+          <button onclick="convertCase('lower')">lowercase</button>
+          <button onclick="convertCase('title')">Title Case</button>
+        </div>
+        <textarea id="caseOutput" placeholder="Converted text..." readonly></textarea>
+        <button class="secondary" onclick="copyText('caseOutput')">Copy result</button>
+      </article>
+
+      <article class="card" data-tool="duplicate lines remover list clean">
+        <h2>🧹 Duplicate Line Remover</h2>
+        <textarea id="duplicateInput" placeholder="Paste a list, one item per line..."></textarea>
+        <div class="row">
+          <label><input type="checkbox" id="ignoreCase" style="width:auto">
+            Ignore case</label>
+        </div>
+        <button onclick="removeDuplicates()">Remove duplicates</button>
+        <p class="result" id="duplicateStatus" aria-live="polite"></p>
+        <textarea id="duplicateOutput" placeholder="Cleaned list..." readonly></textarea>
+        <button class="secondary" onclick="copyText('duplicateOutput')">Copy result</button>
+      </article>
+
+      <article class="card" data-tool="json formatter validator developer">
+        <h2>🧩 JSON Formatter</h2>
+        <textarea id="jsonInput" placeholder='Paste JSON, e.g. {"name":"Alex","age":20}'></textarea>
+        <div class="row">
+          <button onclick="formatJSON()">Format JSON</button>
+          <button class="secondary" onclick="minifyJSON()">Minify</button>
+        </div>
+        <p class="result" id="jsonStatus" aria-live="polite"></p>
+        <textarea id="jsonOutput" placeholder="JSON result..." readonly></textarea>
+        <button class="secondary" onclick="copyText('jsonOutput')">Copy result</button>
+      </article>
+
+      <article class="card" data-tool="percentage discount calculator price">
+        <h2>🧮 Discount Calculator</h2>
+        <label for="price">Original price (₹)</label>
+        <input id="price" type="number" min="0" step="any" placeholder="e.g. 1000">
+        <label for="discount">Discount (%)</label>
+        <input id="discount" type="number" min="0" max="100" step="any" placeholder="e.g. 20">
+        <div class="row">
+          <button onclick="calculateDiscount()">Calculate</button>
+        </div>
+        <p class="result" id="discountResult" aria-live="polite"></p>
+      </article>
+
+    </section>
+
+    <section class="card">
+      <h2>Why use ToolNest?</h2>
+      <p class="muted">
+        Simple browser-based utilities for students, creators, developers
+        and everyday tasks. No account is needed for these tools.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> ToolNest. Built for useful everyday work.</p>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+    <p>Results are processed in your browser by these tools.</p>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    $("year").textContent = new Date().getFullYear();
+
+    $("textInput").addEventListener("input", () => {
+      const t = $("textInput").value;
+      $("words").textContent = t.trim() ? t.trim().split(/\s+/).length : 0;
+      $("chars").textContent = t.length;
+      $("sentences").textContent =
+        (t.match(/[.!?]+(?=\s|$)/g) || []).length;
+    });
+
+    function convertCase(type) {
+      const t = $("caseInput").value;
+      let result = t;
+      if (type === "upper") result = t.toUpperCase();
+      if (type === "lower") result = t.toLowerCase();
+      if (type === "title") {
+        result = t.toLowerCase().replace(/\b[\p{L}\p{N}]/gu,
+          c => c.toUpperCase());
+      }
+      $("caseOutput").value = result;
+    }
+
+    function removeDuplicates() {
+      const lines = $("duplicateInput").value.split(/\r?\n/);
+      const seen = new Set();
+      const cleaned = [];
+      const ignore = $("ignoreCase").checked;
+
+      for (const line of lines) {
+        const key = ignore ? line.toLowerCase() : line;
+        if (!seen.has(key)) {
+          seen.add(key);
+          cleaned.push(line);
+        }
+      }
+
+      $("duplicateOutput").value = cleaned.join("\n");
+      $("duplicateStatus").textContent =
+        `${lines.length - cleaned.length} duplicate line(s) removed.`;
+    }
+
+    function formatJSON() {
+      try {
+        $("jsonOutput").value =
+          JSON.stringify(JSON.parse($("jsonInput").value), null, 2);
+        $("jsonStatus").textContent = "Valid JSON.";
+      } catch (e) {
+        $("jsonStatus").textContent = "Invalid JSON. Check your input.";
+        $("jsonOutput").value = "";
+      }
+    }
+
+    function minifyJSON() {
+      try {
+        $("jsonOutput").value =
+          JSON.stringify(JSON.parse($("jsonInput").value));
+        $("jsonStatus").textContent = "JSON minified successfully.";
+      } catch (e) {
+        $("jsonStatus").textContent = "Invalid JSON. Check your input.";
+        $("jsonOutput").value = "";
+      }
+    }
+
+    function calculateDiscount() {
+      const price = Number($("price").value);
+      const discount = Number($("discount").value);
+
+      if ($("price").value.trim() === "" ||
+          $("discount").value.trim() === "" ||
+          !Number.isFinite(price) || !Number.isFinite(discount) ||
+          price < 0 || discount < 0 || discount > 100) {
+        $("discountResult").textContent =
+          "Enter a valid price and discount between 0 and 100.";
+        return;
+      }
+
+      const saved = price * discount / 100;
+      const finalPrice = price - saved;
+      $("discountResult").textContent =
+        `You save ₹${saved.toFixed(2)}. Final price: ₹${finalPrice.toFixed(2)}.`;
+    }
+
+    async function copyText(id) {
+      const value = $(id).value;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(value);
+        } else {
+          $(id).focus();
+          $(id).select();
+          if (!document.execCommand("copy")) throw new Error("Copy failed");
+        }
+        alert("Copied!");
+      } catch (e) {
+        alert("Copy failed. Select the text and copy it manually.");
+      }
+    }
+
+    function clearText(id) {
+      $(id).value = "";
+      if (id === "textInput") $("textInput").dispatchEvent(new Event("input"));
+    }
+
+    $("search").addEventListener("input", e => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll("[data-tool]").forEach(card => {
+        card.classList.toggle("hidden",
+          !card.dataset.tool.includes(q) &&
+          !card.innerText.toLowerCase().includes(q));
+      });
+    });
+  </script>
+</body>
+</html>
